@@ -15,4 +15,14 @@ describe '#Stage' do
       expect(Stage.all).to eq([])
     end
   end
+
+  describe '#save' do
+    it 'saves item to the db' do
+      stage1 = Stage.new
+      stage2 = Stage.new
+      stage1.save
+      stage2.save
+      expect(Stage.all.length).to eq(2)
+    end
+  end
 end
