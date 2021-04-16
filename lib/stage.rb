@@ -1,20 +1,43 @@
 # frozen_string_literal: true
+require 'pry'
 
 # Just has many artists. Should has backend for CRUD requests.
 class Stage
-  @stages = []
+  attr_reader :id, :name
 
-  def self.clear; end
+  @stages = {}
+  @total_rows = 0
+
+  def initialize(name, id = nil)
+    @name = name
+    @id = id || self.class.free_id
+  end
+
+  def self.free_id
+    @total_rows += 1
+  end
+
+  def self.clear
+    @stages = {}
+  end
 
   def self.add_stage(stage)
-    @stages << stage
+    @stages[stage.id] = Stage.new(stage.name, stage.id)
   end
 
   def self.all
-    @stages
+    @stages.values
+  end
+
+  def self.find(id)
+    @stages[id]
   end
 
   def save
     self.class.add_stage self
+  end
+
+  def ==(other)
+    name == other.name
   end
 end
