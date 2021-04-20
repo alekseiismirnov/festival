@@ -47,6 +47,7 @@ class Stage
 
   def update(new_name)
     @name = new_name
+    save
   end
 
   def delete

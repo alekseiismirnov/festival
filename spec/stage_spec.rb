@@ -30,8 +30,9 @@ describe '#Stage' do
     it 'changes the stage name' do
       new_name = 'Dash'
       stage = Stage.new('One')
+      stage.save
       stage.update(new_name)
-      expect(stage.name).to eq(new_name)
+      expect(Stage.find(stage.id).name).to eq(new_name)
     end
   end
 
