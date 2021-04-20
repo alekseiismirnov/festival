@@ -34,4 +34,24 @@ describe '#Stage' do
       expect(stage.name).to eq(new_name)
     end
   end
+
+  describe '#delete' do
+    before :each do
+      Stage.clear
+      @stage1 = Stage.new('One')
+      @stage2 = Stage.new('Two')
+      @stage1.save
+      @stage2.save
+    end
+
+    it 'reduces general number of stages' do
+      @stage1.delete
+      expect(Stage.all.length).to eq(1)
+    end
+
+    it 'you`ll not find this stage again' do
+      @stage1.delete
+      expect(Stage.find(@stage1.id)).to eq(nil)
+    end
+  end
 end

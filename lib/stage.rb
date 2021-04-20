@@ -33,6 +33,10 @@ class Stage
     @stages[id]
   end
 
+  def self.delete_stage(id)
+    @stages.delete(id)
+  end
+
   def save
     self.class.add_stage self
   end
@@ -43,5 +47,9 @@ class Stage
 
   def update(new_name)
     @name = new_name
+  end
+
+  def delete
+    self.class.delete_stage(id)
   end
 end
