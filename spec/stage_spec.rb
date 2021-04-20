@@ -25,4 +25,13 @@ describe '#Stage' do
       expect(Stage.all.length).to eq(2)
     end
   end
+
+  describe '#upadte' do
+    it 'changes the stage name' do
+      new_name = 'Dash'
+      stage = Stage.new('One')
+      stage.update(new_name)
+      expect(stage.name).to eq(new_name)
+    end
+  end
 end

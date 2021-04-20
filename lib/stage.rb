@@ -40,4 +40,8 @@ class Stage
   def ==(other)
     name == other.name
   end
+
+  def update(new_name)
+    @name = new_name
+  end
 end
