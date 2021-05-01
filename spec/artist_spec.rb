@@ -33,19 +33,4 @@ describe '#Artist' do
       expect(artist).to eq(@artist2)
     end
   end
-
-  describe '.find_by_stage' do
-    it 'finds all artists performing on given stage' do
-      stage = Stage.new('All Numbers')
-      stage.save
-      artists_list = []
-      (1..10).each do |i|
-        artist = Artist.new("Artist #{i}")
-        artist.assign_to_stage stage.id
-        artist.save
-        artists_list << artist
-      end
-      expect(Artist.find_by_stage(stage.id)).to eq(artists_list)
-    end
-  end
 end
