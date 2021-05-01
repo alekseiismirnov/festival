@@ -18,7 +18,7 @@ describe '#Stage' do
 
     describe '.find' do
       it 'finds element by id' do
-       expect(Stage.find(@stage2.id)).to eq(@stage2)
+        expect(Stage.find(@stage2.id)).to eq(@stage2)
       end
     end
   end
