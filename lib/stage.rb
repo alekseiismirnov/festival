@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'pry'
 
 # Just has many artists. Should has backend for CRUD requests.
