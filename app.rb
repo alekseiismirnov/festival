@@ -16,3 +16,14 @@ end
 get '/stages' do
   erb :stages
 end
+
+get '/stages/new' do
+  erb :new_stage
+end
+
+post '/stages' do
+  name = params[:stage_name]
+  stage = Stage.new(name)
+  stage.save
+  erb :stages
+end

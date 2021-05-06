@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'capybara/rspec'
 require './app'
 
@@ -20,5 +22,16 @@ describe('Stages page requirements', type: :feature) do
 
   it 'contains saved stage name' do
     expect(page).to have_content(@stage.name)
+  end
+end
+
+describe('Create a stage path', type: :feature) do
+  it 'creates a new stage and goes to the stage list page' do
+    stage_name = 'Sing it slowly'
+    visit('/stages')
+    click_on('Add a new stage')
+    fill_in('stage_name', with: stage_name)
+    click_on('Add')
+    expect(page).to have_content(stage_name)
   end
 end
