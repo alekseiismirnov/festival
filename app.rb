@@ -27,3 +27,9 @@ post '/stages' do
   stage.save
   erb :stages
 end
+
+get '/stages/:id' do
+  id = params[:id].to_i
+  @artists_list = Artist.find_by_stage(id)
+  erb :stage
+end
