@@ -28,7 +28,18 @@ describe('routing to the stage page', type: :feature) do
       visit "/stages/#{@stage2.id}"
     end
     it 'shows `no artists` message' do
-      expect(page).to have_content('Empty stage') 
+      expect(page).to have_content('Empty stage')
+    end
+  end
+
+  context 'with artists' do
+    before :each do
+      visit "/stages/#{@stage.id}"
+    end
+    it 'contains associated artists' do
+      @artists_list.each do |artist|
+        expect(page).to have_content(artist.name)
+      end
     end
   end
 end

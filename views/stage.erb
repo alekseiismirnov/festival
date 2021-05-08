@@ -1,6 +1,11 @@
 <ul>
   <% if @artists_list == [] %>
     <p>Empty stage</p>
+  <% else %>
+    <% @artists_list.each do |artist| %>
+      <li>
+        <p><%=artist.name%></p>
+      </li>
+    <% end %>
   <% end %>
 </ul>
-
