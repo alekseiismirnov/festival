@@ -23,6 +23,11 @@ describe('Stages page requirements', type: :feature) do
   it 'contains saved stage name' do
     expect(page).to have_content(@stage.name)
   end
+
+  it 'has link on stage page' do
+    click_on(@stage.name)
+    expect(page).to have_content("Stage #{@stage.name}")
+  end
 end
 
 describe('Create a stage path', type: :feature) do

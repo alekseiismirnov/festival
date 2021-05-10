@@ -30,6 +30,8 @@ end
 
 get '/stages/:id' do
   id = params[:id].to_i
+  stage = Stage.find id
+  @stage_name = stage.name
   @artists_list = Artist.find_by_stage(id)
   erb :stage
 end

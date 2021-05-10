@@ -11,8 +11,10 @@
 
 - [x] Default page: the stages list.
 - [x] Create: link from the default page, edit form.
-- [x] View: list of artists.
-- [ ] Edit: link from the default page, edit form.
+- [x] View:
+  - [x] stages.
+  - [x] stage page.
+- [ ] Edit: link from the stage page, edit form.
 - [ ] Delete: a button, next to the list item.
 
 ### Artist
