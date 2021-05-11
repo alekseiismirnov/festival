@@ -40,3 +40,20 @@ describe('Create a stage path', type: :feature) do
     expect(page).to have_content(stage_name)
   end
 end
+
+describe('Edit stage', type: :feature) do
+  before :each do
+    Stage.clear
+    @stage = Stage.new('All Numbers')
+    @stage.save
+  end
+
+  it 'changes stage name' do
+    new_name = 'Shine new name'
+    visit("/stages/#{@stage.id}")
+    click_on('Edit')
+    fill_in('stage_name', with: new_name)
+    click_on('Update!')
+    expect(page).to have_content("Stage #{new_name}")
+  end
+end

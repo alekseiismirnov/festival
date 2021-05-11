@@ -14,12 +14,12 @@
 - [x] View:
   - [x] stages.
   - [x] stage page.
-- [ ] Edit: link from the stage page, edit form.
+- [x] Edit: link from the stage page, edit form.
 - [ ] Delete: a button, next to the list item.
 
 ### Artist
 
-- [ ] View: as a list item on the stage page.
+- [x] View: as a list item on the stage page.
 - [ ] Create: button on the stage page, edit page.
 - [ ] Edit: edit page.
 - [ ] Delete: a button next to the list item.

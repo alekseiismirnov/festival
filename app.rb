@@ -29,9 +29,27 @@ post '/stages' do
 end
 
 get '/stages/:id' do
-  id = params[:id].to_i
-  stage = Stage.find id
+  @id = params[:id].to_i
+  stage = Stage.find @id
   @stage_name = stage.name
-  @artists_list = Artist.find_by_stage(id)
+  @artists_list = Artist.find_by_stage @id
   erb :stage
 end
+
+get '/stages/:id/edit' do
+  @id = params[:id].to_i
+  stage = Stage.find @id
+  @stage_name = stage.name
+  erb :edit_stage
+end
+
+patch '/stages/:id' do
+  @id = params[:id].to_i
+  stage = Stage.find @id
+  stage.update params[:stage_name]
+  @stage_name = stage.name
+  @artists_list = Artist.find_by_stage @id
+  erb :stage
+end
+
+
