@@ -14,6 +14,7 @@ get '/' do
 end
 
 get '/stages' do
+  @stages = Stage.all
   erb :stages
 end
 
@@ -25,6 +26,7 @@ post '/stages' do
   name = params[:stage_name]
   stage = Stage.new(name)
   stage.save
+  @stages = Stage.all
   erb :stages
 end
 
@@ -52,4 +54,10 @@ patch '/stages/:id' do
   erb :stage
 end
 
-
+delete '/stages/:id' do
+  id = params[:id].to_i
+  stage = Stage.find id
+  stage.delete
+  @stages = Stage.all
+  erb :stages
+end

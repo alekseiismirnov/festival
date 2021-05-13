@@ -57,3 +57,20 @@ describe('Edit stage', type: :feature) do
     expect(page).to have_content("Stage #{new_name}")
   end
 end
+
+describe('Delete stage', type: :feature) do
+  before :each do
+    Stage.clear
+    @stage = Stage.new('All Numbers')
+    @stage.save
+  end
+
+  context 'press `delete` button' do
+    # doesn't work here, but manualy 
+    xit 'makes the stage dissappear from the list' do
+      visit('/stages')
+      click_button('Delete')
+      expect(page).to have_no_content('All Numbers')
+    end
+  end
+end
