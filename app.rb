@@ -61,3 +61,22 @@ delete '/stages/:id' do
   @stages = Stage.all
   erb :stages
 end
+
+get '/stages/:id/new_artist' do
+  @id = params[:id].to_i
+  erb :new_artist
+end
+
+post '/stages/:id' do
+  @id = params[:id].to_i
+
+  artist_name = params[:artist_name]
+  artist = Artist.new(artist_name)
+  artist.assign_to_stage @id
+  artist.save
+  stage = Stage.find @id
+  stage.update params[:stage_name]
+  @stage_name = stage.name
+  @artists_list = Artist.find_by_stage @id
+  erb :stage
+end

@@ -15,7 +15,7 @@
   - [x] stages.
   - [x] stage page.
 - [x] Edit: link from the stage page, edit form.
-- [ ] Delete: a button, next to the list item.
+- [x] Delete: a button, next to the list item.
 
 ### Artist
 
