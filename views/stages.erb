@@ -1,13 +1,15 @@
 <h1>Festival Stages</h1>
-<ul>.
-  <% @stages.each do |stage| %>
-    <li>
-      <a href="/stages/<%= stage.id %>"><%= stage.name %></a>
-      <form action="/stages/<%= stage.id %>" method="post">
-        <input name="_method" type="hidden" value="delete">
-        <button type="delete">Delete</button>
-      </form>
-    </li>
-  <% end %>
-</ul>
+<% if @stages %>
+  <ul>
+    <% @stages.each do |stage| %>
+      <li>
+        <a href="/stages/<%= stage.id %>"><%= stage.name %></a>
+        <form action="/stages/<%= stage.id %>" method="post">
+          <input name="_method" type="hidden" value="delete">
+          <button type="delete">Delete</button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 <a href="/stages/new">Add a new stage</a>
