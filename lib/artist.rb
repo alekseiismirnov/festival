@@ -54,4 +54,9 @@ class Artist
   def assign_to_stage(stage_id)
     @stage_id = stage_id
   end
+
+  def update new_name
+    @name = new_name
+    save
+  end
 end

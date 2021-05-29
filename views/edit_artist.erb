@@ -1,0 +1,6 @@
+<form action="/stages/<%= @id %>/artists/<%= @artist_id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="artist_name">Artist name</label>
+  <input name="artist_name" type="text" value="<%=@artist_name%>">
+  <button type="submit" class = btn>Update</button>
+</form>

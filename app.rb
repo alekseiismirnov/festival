@@ -80,3 +80,24 @@ post '/stages/:id' do
   @artists_list = Artist.find_by_stage @id
   erb :stage
 end
+
+get '/stages/:id/artists/:artist_id/edit' do
+  @id = params[:id].to_i
+  @artist_id = params[:artist_id].to_i
+
+  @artist_name = Artist.find(@artist_id).name
+  erb :edit_artist
+end
+
+patch '/stages/:id/artists/:artist_id' do
+  artist_id = params[:artist_id].to_i
+  artist = Artist.find artist_id
+
+  artist.update params[:artist_name]
+
+  id = params[:id].to_i
+  @stage_name = Stage.find(id).name
+  @artists_list = Artist.find_by_stage id
+  
+  erb :stage
+end

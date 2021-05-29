@@ -33,4 +33,24 @@ describe('Artist: create, edit, delete', type: :feature) do
       expect(page).to have_content(new_artist_name)
     end
   end
+
+  context 'edit artist' do
+    before :each do
+      @artist = @artists_list.sample
+      @artist_old_name = @artist.name
+      @artist_new_name = 'Same But Different'
+      visit "/stages/#{@stage.id}"
+      click_on @artist.name
+      fill_in('artist_name', with: @artist_new_name)
+      click_on 'Update'
+    end
+
+    it 'makes new artist name appears in artists list' do
+      expect(page).to have_content(@artist_new_name)
+    end
+
+    it 'makes old artst name dissappear from the list' do
+      expect(page).to have_no_content(@artist_old_name)
+    end
+  end
 end

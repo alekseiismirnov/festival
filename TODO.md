@@ -20,6 +20,6 @@
 ### Artist
 
 - [x] View: as a list item on the stage page.
-- [ ] Create: button on the stage page, edit page.
-- [ ] Edit: edit page.
+- [x] Create: button on the stage page, edit page.
+- [x] Edit: edit page.
 - [ ] Delete: a button next to the list item.

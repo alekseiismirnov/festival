@@ -5,7 +5,9 @@
   <% else %>
     <% @artists_list.each do |artist| %>
       <li>
-        <p><%=artist.name%></p>
+        <a href="/stages/<%= @id %>/artists/<%=artist.id%>/edit">
+          <%=artist.name%>
+        </a>
       </li>
     <% end %>
   <% end %>
