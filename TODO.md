@@ -22,4 +22,4 @@
 - [x] View: as a list item on the stage page.
 - [x] Create: button on the stage page, edit page.
 - [x] Edit: edit page.
-- [ ] Delete: a button next to the list item.
+- [x] Delete: a button next to the list item.

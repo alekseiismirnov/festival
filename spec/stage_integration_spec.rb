@@ -66,7 +66,7 @@ describe('Delete stage', type: :feature) do
   end
 
   context 'press `delete` button' do
-    # doesn't work here, but manualy 
+    # doesn't work here, but manualy
     xit 'makes the stage dissappear from the list' do
       visit('/stages')
       click_button('Delete')
