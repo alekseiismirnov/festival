@@ -27,6 +27,10 @@ class Artist
     @artists[artist.id] = artist
   end
 
+  def self.remove_artist(id)
+    @artists.delete(id)
+  end
+
   def self.all
     @artists.values
   end
@@ -55,8 +59,12 @@ class Artist
     @stage_id = stage_id
   end
 
-  def update new_name
+  def update(new_name)
     @name = new_name
     save
+  end
+
+  def delete
+    self.class.remove_artist @id
   end
 end

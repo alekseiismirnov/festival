@@ -9,7 +9,8 @@ set(:show_exceptions, false)
 describe('Artist: create, edit, delete', type: :feature) do
   before :each do
     Stage.clear
-
+    Artist.clear
+    
     @stage = Stage.new('All Numbers')
     @stage.save
     @stage2 = Stage.new('Nobody here')
@@ -21,6 +22,9 @@ describe('Artist: create, edit, delete', type: :feature) do
       artist.save
       @artists_list << artist
     end
+    @single_artist = Artist.new("Just Nobody")
+    @single_artist.assign_to_stage @stage2.id
+    @single_artist.save
   end
 
   context 'create new artist item from the scene page' do
@@ -51,6 +55,17 @@ describe('Artist: create, edit, delete', type: :feature) do
 
     it 'makes old artst name dissappear from the list' do
       expect(page).to have_no_content(@artist_old_name)
+    end
+  end
+
+  context 'delete artist' do
+    before :each do
+      visit "/stages/#{@stage2.id}"
+      click_on 'Delete'
+    end
+
+    it 'makes deleted artist name dissappear from the list' do
+      expect(page).to have_content('Empty stage')
     end
   end
 end

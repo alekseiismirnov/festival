@@ -8,6 +8,10 @@
         <a href="/stages/<%= @id %>/artists/<%=artist.id%>/edit">
           <%=artist.name%>
         </a>
+        <form action="/stages/<%= @id %>/artists/<%= artist.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn">Delete</button>
+        </form>
       </li>
     <% end %>
   <% end %>

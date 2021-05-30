@@ -98,6 +98,17 @@ patch '/stages/:id/artists/:artist_id' do
   id = params[:id].to_i
   @stage_name = Stage.find(id).name
   @artists_list = Artist.find_by_stage id
-  
+
+  erb :stage
+end
+
+delete '/stages/:id/artists/:artist_id' do
+  id = params[:id].to_i
+  artist_id = params[:artist_id].to_i
+  Artist.remove_artist artist_id
+
+  @stage_name = Stage.find(id).name
+  @artists_list = Artist.find_by_stage id
+
   erb :stage
 end
