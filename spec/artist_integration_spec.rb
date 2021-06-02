@@ -61,7 +61,7 @@ describe('Artist: create, edit, delete', type: :feature) do
   context 'delete artist' do
     before :each do
       visit "/stages/#{@stage2.id}"
-      click_on 'Delete'
+      click_button 'Delete'
     end
 
     it 'makes deleted artist name dissappear from the list' do

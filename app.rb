@@ -56,8 +56,8 @@ end
 
 delete '/stages/:id' do
   id = params[:id].to_i
-  stage = Stage.find id
-  stage.delete
+  Stage.delete_stage id
+
   @stages = Stage.all
   erb :stages
 end
@@ -95,9 +95,9 @@ patch '/stages/:id/artists/:artist_id' do
 
   artist.update params[:artist_name]
 
-  id = params[:id].to_i
-  @stage_name = Stage.find(id).name
-  @artists_list = Artist.find_by_stage id
+  @id = params[:id].to_i
+  @stage_name = Stage.find(@id).name
+  @artists_list = Artist.find_by_stage @id
 
   erb :stage
 end

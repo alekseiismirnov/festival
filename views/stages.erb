@@ -6,7 +6,7 @@
         <a href="/stages/<%= stage.id %>"><%= stage.name %></a>
         <form action="/stages/<%= stage.id %>" method="post">
           <input name="_method" type="hidden" value="delete">
-          <button type="delete">Delete</button>
+          <button type="submit">Delete</button>
         </form>
       </li>
     <% end %>
